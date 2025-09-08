@@ -1,0 +1,42 @@
+name: API Tests
+
+# When the workflow should run
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository code
+      - uses: actions/checkout@v4
+
+      # 2. Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install Newman globally
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-html
+
+      # 4. Run Trello API tests using secrets for key and token
+      - name: Run Trello API tests
+        run: |
+          mkdir -p reports
+          newman run "collections/trello_API_collection.json" \
+          --env-var "trelloKey=${{ secrets.TRELLO_KEY }}" \
+          --env-var "trelloToken=${{ secrets.TRELLO_TOKEN }}" \
+          -r cli,html \
+          --reporter-html-export "reports/trello_report.html"
+
+      # 5. Upload the report as an artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trello-api-report
+          path: reports/trello_report.html
