@@ -1,4 +1,4 @@
-# Simple Grocery Store API 🚀
+# Trello API
 
 [![Postman](https://img.shields.io/badge/Postman-API%20Testing-orange)](https://www.postman.com/)
 [![Newman](https://img.shields.io/badge/Newman-5.3.0-blue)](https://www.npmjs.com/package/newman)
@@ -8,12 +8,12 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 This project contains automated API tests for the **Trello API**. The tests are written as a **Postman collection** and can be executed locally using **Newman** or via **GitHub Actions** for CI/CD. The project also generates HTML reports for test execution results.
 
 ---
 
-## 🎯 Project Goals
+## Project Goals
 - Validate the functionality of the Trello API endpoints.
 - Automate testing of key workflows such as creating boards, lists, and cards.
 - Ensure proper handling of authentication, error messages, and invalid input scenarios.
@@ -22,7 +22,7 @@ This project contains automated API tests for the **Trello API**. The tests are 
 
 ---
 
-## 🔧 Technologies and Tools
+## Technologies and Tools
 * **Newman** – command-line runner for Postman collections.
 * **Postman** – API client to create collections and environments.
 * **GitHub Actions** – CI/CD workflow to run tests automatically.
@@ -30,7 +30,7 @@ This project contains automated API tests for the **Trello API**. The tests are 
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 1. Clone the repository:
 ```bash
@@ -54,7 +54,7 @@ newman run collections/trello_API_collection.json \
 
 ---
 
-## 🧾 Results
+## Results
 - All endpoints are tested.
 - Test results are displayed in the CLI and saved as HTML reports.
 - Examples of tested scenarios:
@@ -69,7 +69,7 @@ newman run collections/trello_API_collection.json \
 
 ---
 
-## 📚 What I Learned
+## What I Learned
 - How to structure API tests using **Postman collections** and environments.
 - How to run Postman tests locally with **Newman**.
 - How to dynamically inject environment variables (e.g., Trello API tokens) in CI/CD pipelines.
@@ -77,14 +77,14 @@ newman run collections/trello_API_collection.json \
 
 ---
 
-## 💡 Future Improvements
+## Future Improvements
 - Add **more detailed test coverage** for edge cases, such as concurrent card creation.
 - Parameterize collections to test multiple environments or API keys.
 - Add **visual regression** tests for Trello board states.
 
 ---
 
-## 📂 Project Files
+## Project Files
 
 trello-api/
 ├─ .github/workflows/
